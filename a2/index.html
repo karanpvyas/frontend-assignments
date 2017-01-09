@@ -1,0 +1,62 @@
+<html>
+  <head>
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+
+  <body>
+    <!-- template for a sample row -->
+    <template id='template'>
+      <div class="row">
+        <span class="col-sm-3">
+          <!-- for room type -->
+        </span>
+        <span class="col-sm-3">
+          <!-- for room price -->
+        </span>
+        <div class="col-sm-3">
+          <input type="number" min="0" max="10" step="1" value="0" />
+        </div>
+        <span class="col-sm-3">
+          <!-- for total price of those particular rooms -->
+        </span>
+      </div>
+    </template>
+
+    <div class="container">
+        <div class="row">
+          <!-- for the head bar -->
+          <div class="col-sm-3">
+            Room Type
+          </div>
+          <div class="col-sm-3">
+            Rate
+          </div>
+          <div class="col-sm-3">
+            Number of Rooms
+          </div>
+          <div class="col-sm-3">
+            Total
+          </div>
+        </div>
+        <div id = "bookingTable" class="row">
+        </div>
+        <div id = "total">
+          0
+        </div>
+        <input id = "discount" type="number" onkeyup="changeNetTotal();" onclick="changeNetTotal();" value=0 />
+        <div id="netTotal">
+          0
+        </div>
+    </div>
+  </body>
+
+  <script src="file.js"></script>
+</html>
