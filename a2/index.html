@@ -22,7 +22,7 @@
           <!-- for room price -->
         </span>
         <div class="col-sm-3">
-          <input type="number" min="0" max="10" step="1" value="0" class="form-control" />
+          <input type="number" min="0" max="10" step="1" value="0" class="form-control preventNegative" />
         </div>
         <span class="col-sm-3">
           <!-- for total price of those particular rooms -->
@@ -59,7 +59,13 @@
         <div class="row text-right" style="margin:10px">
           Enter discount: &nbsp;
           <span style="float:right">%</span>
-          <input style="float:right;" id = "discount" type="number" onkeyup="changeNetTotal();" onclick="changeNetTotal();" value=0 />
+          <input style="float:right;" class="preventNegative" id = "discount" type="number" onkeyup="changeNetTotal();" onclick="changeNetTotal();" value=0 />
+        </div>
+        <div class="row text-right">
+          <b>Total discount:</b>
+          <span id="totalDiscount" class="badge bg-danger" style="min-width: 50px">
+            0
+          </span>
         </div>
         <div class="row text-right">
           <b>Net Total:</b>

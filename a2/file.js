@@ -2,6 +2,7 @@
 //read about cloneNode method ------
 // is using innerHTML a good thing?
 //can call onclick even  if js loaded later, but cannot bind anything to it, right?
+// a better alternative to checks on the negative numbers?
 
 //data storage
 var data = [
@@ -105,6 +106,11 @@ var roomsBooked = {
 
 //to change the gross total of a room's total, in the individual rows
 var changeGrossValue = function(roomType, rate){
+  // to prevent negative values
+  if(event.target.value < 0 || event.keyCode === 189){
+    event.target.value = 0;
+    return;
+  }
   let numOfRooms = event.target.value;
   document.querySelector('#'+roomType+'_grossTotal').innerHTML = numOfRooms * rate;
   //change the roomsBooked var
@@ -129,9 +135,14 @@ var changeTotal = function(){
 
 //to change the net total
 var changeNetTotal = function(){
+  if(event.target.value < 0 || event.keyCode === 189){
+    event.target.value = 0;
+    return;
+  }
   document.querySelector('#netTotal').innerHTML=(
     parseInt(document.querySelector('#total').innerHTML)*(100-document.querySelector('#discount').value)*0.01
   );
+  document.querySelector('#totalDiscount').innerHTML = parseInt(document.querySelector('#total').innerHTML)*(document.querySelector('#discount').value)*0.01 ;
 }
 
 //putting template outside the function so as it doenst need to be "got" everytime
