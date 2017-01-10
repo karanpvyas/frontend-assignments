@@ -30,7 +30,7 @@ var changeDOM = function(obj){
   $(document.querySelector('#last')).fadeIn('fast');
 
 
-  var beautified = '<span class="badge">'+ count++ +'</span>'+'<br>' + JSON.stringify(obj, null, 2) +'<br>' + '------------- <br> fetched at '+ new Date().toTimeString().split(" ")[0] + '<hr />';
+  var beautified = '<span class="badge">'+ count++ +'</span>'+'<br><br>' + JSON.stringify(obj, null, 2) +'<br>' + '------------- <br> fetched at '+ new Date().toTimeString().split(" ")[0] + '<hr />';
   document.querySelector('#historical').innerHTML += beautified;
 }
 
