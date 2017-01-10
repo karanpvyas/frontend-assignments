@@ -1,6 +1,7 @@
 //appendchild to karna hi padega na!
 //read about cloneNode method ------
 // is using innerHTML a good thing?
+//can call onclick even  if js loaded later, but cannot bind anything to it, right?
 
 //data storage
 var data = [
@@ -21,6 +22,74 @@ var data = [
     'rate' : 4000
   }
 ]
+
+var sortingInformation = {
+  sortedBy:'rate',
+  sortOrder:'ascending'
+}
+
+//this func must be made in lesser lines.
+var sortData = function(by){
+  if (by === 'type'){
+    if(sortingInformation.sortedBy === 'type'){
+      if(sortingInformation.sortOrder === 'ascending'){
+        //do type desc
+        data.sort(function(a, b){
+          return a.roomType < b.roomType ;
+        });
+        sortingInformation.sortOrder='descending';
+        document.querySelector('#roomTypeArrow').className = 'glyphicon glyphicon-arrow-down';
+      }else if(sortingInformation.sortOrder == 'descending'){ // this check isnt really needed, but just for integrity...
+        //do type asce
+        data.sort(function(a, b){
+          return a.roomType > b.roomType ;
+        });
+        sortingInformation.sortOrder='ascending';
+        document.querySelector('#roomTypeArrow').className = 'glyphicon glyphicon-arrow-up';
+      }
+    }else {
+      //do type asce
+      data.sort(function(a, b){
+        return a.roomType > b.roomType ;
+      });
+      sortingInformation.sortOrder='ascending';
+      sortingInformation.sortedBy='type';
+      document.querySelector('#roomTypeArrow').className = 'glyphicon glyphicon-arrow-up';
+      document.querySelector('#roomRateArrow').className = '';
+    }
+  }else if (by === 'rate'){ // this check isnt really needed, but just for integrity...
+    if(sortingInformation.sortedBy === 'rate'){
+      if(sortingInformation.sortOrder === 'ascending'){
+        //do rate desc
+        data.sort(function(a, b){
+          return a.rate < b.rate ;
+        });
+        sortingInformation.sortOrder='descending';
+        document.querySelector('#roomRateArrow').className = 'glyphicon glyphicon-arrow-down';
+      }else if(sortingInformation.sortOrder == 'descending'){ // this check isnt really needed, but just for integrity...
+        //do rate asce
+        data.sort(function(a, b){
+          return a.rate > b.rate ;
+        });
+        sortingInformation.sortOrder='ascending';
+        document.querySelector('#roomRateArrow').className = 'glyphicon glyphicon-arrow-up';
+      }
+    }else {
+      //do rate asce
+      data.sort(function(a, b){
+        return a.rate > b.rate ;
+      });
+      sortingInformation.sortOrder='ascending';
+      sortingInformation.sortedBy='rate';
+      document.querySelector('#roomRateArrow').className = 'glyphicon glyphicon-arrow-up';
+      document.querySelector('#roomTypeArrow').className = '';
+    }
+  }else{
+    console.log('something bad happened.')
+  }
+  // console.log(data);
+  displayRooms();
+}
 
 //should get rid of this variable, but eh!
 var roomRates = {
@@ -70,6 +139,10 @@ var template = document.querySelector('#template');
 
 var displayRooms = function(){
   var bookingTable = document.querySelector('#bookingTable');
+  //emptying it first
+  while (bookingTable.firstChild) {
+    bookingTable.removeChild(bookingTable.firstChild);
+  }
   for(var i = 0; i<data.length; i++){
     var room = data[i];
     var clone = template.content.cloneNode(true);
