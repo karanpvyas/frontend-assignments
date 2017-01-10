@@ -61,7 +61,7 @@ var changeTotal = function(){
 //to change the net total
 var changeNetTotal = function(){
   document.querySelector('#netTotal').innerHTML=(
-    parseInt(document.querySelector('#total').innerHTML)*(100-event.target.value)*0.01
+    parseInt(document.querySelector('#total').innerHTML)*(100-document.querySelector('#discount').value)*0.01
   );
 }
 
@@ -78,6 +78,7 @@ var displayRooms = function(){
     spans[1].innerHTML = room.rate;
     clone.querySelector('input').id = room.roomType + '_num'; // eg. Deluxe_num (num of rooms)
     clone.querySelector('input').onclick = changeGrossValue.bind(this, room.roomType, room.rate); // wooooooo
+    clone.querySelector('input').onkeyup = changeGrossValue.bind(this, room.roomType, room.rate); // wooooooo
     if(room.roomType in roomsBooked){
       clone.querySelector('input').value = roomsBooked[room.roomType];
     }else{

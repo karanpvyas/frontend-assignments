@@ -2,7 +2,7 @@
   <head>
         <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="file.css"
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -15,45 +15,57 @@
     <!-- template for a sample row -->
     <template id='template'>
       <div class="row">
-        <span class="col-sm-3">
+        <span class="col-sm-3" style="font-weight:bold; color:blue; font-size:20px;">
           <!-- for room type -->
         </span>
         <span class="col-sm-3">
           <!-- for room price -->
         </span>
         <div class="col-sm-3">
-          <input type="number" min="0" max="10" step="1" value="0" />
+          <input type="number" min="0" max="10" step="1" value="0" class="form-control" />
         </div>
         <span class="col-sm-3">
           <!-- for total price of those particular rooms -->
         </span>
       </div>
+      <hr />
     </template>
 
-    <div class="container">
+    <div class="container" style="padding:10px">
         <div class="row">
           <!-- for the head bar -->
           <div class="col-sm-3">
-            Room Type
+            <h3 class="head-cell">Room Type</h3>
           </div>
           <div class="col-sm-3">
-            Rate
+            <h3 class="head-cell">Rate</h3>
           </div>
           <div class="col-sm-3">
-            Number of Rooms
+            <h3 class="head-cell">Number of Rooms</h3>
           </div>
           <div class="col-sm-3">
-            Total
+            <h3 class="head-cell">Total</h3>
           </div>
         </div>
-        <div id = "bookingTable" class="row">
+        <hr />
+        <div id = "bookingTable" class="row form-group">
         </div>
-        <div id = "total">
-          0
+        <div class="row text-right">
+          <b>Total: </b>
+          <span id = "total" class="badge" style="min-width: 50px">
+            0
+          </span>
         </div>
-        <input id = "discount" type="number" onkeyup="changeNetTotal();" onclick="changeNetTotal();" value=0 />
-        <div id="netTotal">
-          0
+        <div class="row text-right" style="margin:10px">
+          Enter discount: &nbsp;
+          <span style="float:right">%</span>
+          <input style="float:right;" id = "discount" type="number" onkeyup="changeNetTotal();" onclick="changeNetTotal();" value=0 />
+        </div>
+        <div class="row text-right">
+          <b>Net Total:</b>
+          <span id="netTotal" class="badge" style="min-width: 50px">
+            0
+          </span>
         </div>
     </div>
   </body>
