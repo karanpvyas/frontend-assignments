@@ -12,26 +12,36 @@ var requestObject = {
   }
 }
 
+var animateAndChange = function(id,obj){
+  $(document.querySelector('#'+id)).fadeOut('fast');
+  document.querySelector('#'+id).innerHTML = obj[id];
+  $(document.querySelector('#'+id)).fadeIn('fast');
+
+}
+
 var changeDOM = function(obj){
-  $(document.querySelector('#avg')).fadeOut('fast');
-  document.querySelector('#avg').innerHTML = obj['24h_avg'];
-  $(document.querySelector('#avg')).fadeIn('fast');
 
-  $(document.querySelector('#bid')).fadeOut('fast');
-  document.querySelector('#bid').innerHTML = obj['bid'];
-  $(document.querySelector('#bid')).fadeIn('fast');
+  obj.avg = obj['24h_avg'];
+  delete obj['24h_avg'];
 
-  $(document.querySelector('#ask')).fadeOut('fast');
-  document.querySelector('#ask').innerHTML = obj['ask'];
-  $(document.querySelector('#ask')).fadeIn('fast');
+  animateAndChange('avg',obj);
+  animateAndChange('bid',obj);
+  animateAndChange('ask',obj);
+  animateAndChange('last',obj);
 
-  $(document.querySelector('#last')).fadeOut('fast');
-  document.querySelector('#last').innerHTML = obj['last'];
-  $(document.querySelector('#last')).fadeIn('fast');
+  var template = document.querySelector('#rowTemplate');
+  var clone = template.content.cloneNode(true);
+  var tds = clone.querySelectorAll('td');
+  tds[0].innerHTML = obj['avg'];
+  tds[1].innerHTML = obj['bid'];
+  tds[2].innerHTML = obj['ask'];
+  tds[3].innerHTML = obj['last'];
+  tds[4].innerHTML = obj['timestamp'];
 
+  console.log(clone);
 
-  var beautified = '<span class="badge">'+ count++ +'</span>'+'<br><br>' + JSON.stringify(obj, null, 2) +'<br>' + '------------- <br> fetched at '+ new Date().toTimeString().split(" ")[0] + '<hr />';
-  document.querySelector('#historical').innerHTML += beautified;
+  document.querySelector('#historical').appendChild(clone);
+
 }
 
 var getBitcoinData = function(){
