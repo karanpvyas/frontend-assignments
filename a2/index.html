@@ -1,0 +1,80 @@
+<html>
+  <head>
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file.css"
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+
+  <body>
+    <!-- template for a sample row -->
+    <template id='template'>
+      <div class="row">
+        <span class="col-sm-3" style="font-weight:bold; color:blue; font-size:20px;">
+          <!-- for room type -->
+        </span>
+        <span class="col-sm-3">
+          <!-- for room price -->
+        </span>
+        <div class="col-sm-3">
+          <input type="number" min="0" max="10" step="1" value="0" class="form-control preventNegative" />
+        </div>
+        <span class="col-sm-3">
+          <!-- for total price of those particular rooms -->
+        </span>
+      </div>
+      <hr />
+    </template>
+
+    <div class="container" style="padding:10px">
+        <div class="row">
+          <!-- for the head bar -->
+          <div class="col-sm-3">
+            <h3 class="head-cell" onclick="sortData.call(this,'type');">Room Type <span id="roomTypeArrow"></span></h3>
+          </div>
+          <div class="col-sm-3">
+            <h3 class="head-cell" onclick="sortData.call(this,'rate');">Rate <span id="roomRateArrow" class="glyphicon glyphicon-arrow-up"> </h3>
+          </div>
+          <div class="col-sm-3">
+            <h3 class="head-cell">Number of Rooms</h3>
+          </div>
+          <div class="col-sm-3">
+            <h3 class="head-cell">Total</h3>
+          </div>
+        </div>
+        <hr />
+        <div id = "bookingTable" class="row form-group">
+        </div>
+        <div class="row text-right">
+          <b>Total: </b>
+          <span id = "total" class="badge" style="min-width: 50px">
+            0
+          </span>
+        </div>
+        <div class="row text-right" style="margin:10px">
+          Enter discount: &nbsp;
+          <span style="float:right">%</span>
+          <input style="float:right;" class="preventNegative" id = "discount" type="number" onkeyup="changeNetTotal();" onclick="changeNetTotal();" value=0 />
+        </div>
+        <div class="row text-right">
+          <b>Total discount:</b>
+          <span id="totalDiscount" class="badge bg-danger" style="min-width: 50px">
+            0
+          </span>
+        </div>
+        <div class="row text-right">
+          <b>Net Total:</b>
+          <span id="netTotal" class="badge" style="min-width: 50px">
+            0
+          </span>
+        </div>
+    </div>
+  </body>
+
+  <script src="file.js"></script>
+</html>
