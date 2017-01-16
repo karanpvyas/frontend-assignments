@@ -22,13 +22,19 @@ var allData = {
       todoText: 'go to gym',
       tags: ['asdasd','asdasdasd'],
       createdAt: '', //in string
-      status: 'done/undone'
+      status: 'undone'
     },
     '13123123123123' : {
       todoText: 'go to gym again',
       tags: ['asdasd','asdasdasd'],
       createdAt: '', //in string
-      status: 'done/undone'
+      status: 'undone'
+    },
+    '231231231235' : {
+      todoText: 'again and again',
+      tags: [],
+      createdAt: '',
+      status: 'undone'
     }
   }
 }
