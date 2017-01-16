@@ -10,7 +10,20 @@
   margin: 0 auto;
   margin-top: 50px;
   height: 70%;
+}
+
+#allTodos {
+  height: auto;
+  max-height: 75%;
   overflow: scroll;
+  /*border-style: solid;
+  border-color: #42f4f1;
+  border-width: 0px 5px 5px 5px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;*/
+  /*didnt want border thatts why */
 }
 
 #okBtn {
@@ -43,16 +56,7 @@ header {
 }
 
 .tab-content {
-  min-height: 50%;
   margin-top: 30px;
-  padding: 10px;
-  border-style: solid;
-  border-color: #42f4f1;
-  border-width: 0px 5px 5px 5px;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 
 ul li {
@@ -136,9 +140,9 @@ ul li a:hover {
   position: relative;;
   margin: 5px;
   height: auto;
-  -webkit-box-shadow: 2px 1px 0px 0px #42f4f1;
-  -moz-box-shadow: 2px 1px 0px 0px #42f4f1;
-  box-shadow: 2px 1px 0px 0px #42f4f1;
+  -webkit-box-shadow: 4px 1px 4px 0px #42f4f1;
+  -moz-box-shadow: 4px 1px 4px 0px #42f4f1;
+  box-shadow: 4px 1px 4px 0px #42f4f1;
   padding: 10px;
 }
 
