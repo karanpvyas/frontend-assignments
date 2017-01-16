@@ -18,12 +18,6 @@ var allData = {
     'tag': [1231525315,51231531251]
   },
   todos: {
-    '1203891230812': {
-      todoText: 'go to gym',
-      tags: ['asdasd','asdasdasd'],
-      createdAt: '', //in string
-      status: 'undone'
-    },
     '13123123123123' : {
       todoText: 'go to gym again',
       tags: ['asdasd','asdasdasd'],
@@ -34,6 +28,12 @@ var allData = {
       todoText: 'again and again',
       tags: [],
       createdAt: '',
+      status: 'undone'
+    },
+    '1203891230812': {
+      todoText: 'go to gym',
+      tags: ['asdasd','asdasdasd'],
+      createdAt: '', //in string
       status: 'undone'
     }
   }
@@ -98,6 +98,7 @@ var render = function(){
   // http://stackoverflow.com/a/684692 ask this.
   let todos = allData.todos;
   let c = 1;
+  let toPush = [];
   for(var key in todos){
     if(todos.hasOwnProperty(key)){
       //redner a single todo
@@ -113,8 +114,14 @@ var render = function(){
       }
       //TODO doubt HOW TO STYLE A DOC FRAGMENT!
 
-      allTodosDiv.appendChild(clone);
+      //lifo
+      toPush.push(clone);
     }
+  }
+
+  //stack emptying and pushing in the dom
+  while(toPush.length !== 0){
+    allTodosDiv.appendChild(toPush.pop());
   }
 
   //if no todos, TELL THAT
