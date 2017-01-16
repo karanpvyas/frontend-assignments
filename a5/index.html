@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="main.css" />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+    <template id=todoListItem>
+      <div class="row todo">
+        <span class="completeTodo" onclick="completeTodo()">
+          I completed this!
+        </span>
+        <span class="deleteTodo" onclick="deleteTodo()">
+          X Delete X
+        </span>
+        <div class="col-xs-1 todoSerialNumber">
+        </div>
+        <div class="col-xs-9 todoText">
+        </div>
+        <div class="col-xs-2 todoStatus">
+        </div>
+      </div>
+    </template>
+
+    <header>
+      Todo-Manager
+    </header>
+
+<!-- main containeer of the body -->
+    <div class="container" id="mainWrapper">
+
+      <!-- for adding a new todo -->
+      <div id="addNewTodo" class="form-group">
+        <input placeholder="Add your TO-DO here..." class="form-control textInput" id = "todoTextInput"/>
+        <button id = "okBtn" class="glyphicon glyphicon-ok" onclick="addNewTodo();"></button>
+      </div>
+
+      <!-- the menu tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a data-toggle="tab" href="#allTodos">All</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#tags" class="disabled">Tags</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#importantTodos" class="disabled">Important</a>
+        </li>
+      </ul>
+
+      <!-- the content inside the tabs -->
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="allTodos">
+
+        </div>
+        <div class="tab-pane fade" id="tags">
+          // find it in v2.0
+        </div>
+        <div class="tab-pane fade" id="importantTodos">
+          // find it in v2.0
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+  <script src = "main.js"> </script>
+</html>

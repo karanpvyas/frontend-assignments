@@ -1,0 +1,168 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          font-family:monospace;;
+}
+
+#mainWrapper {
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 50px;
+  height: 70%;
+  overflow: scroll;
+}
+
+#okBtn {
+  width: 50px;
+  height: 50px;
+  margin-left: -50px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  color: white;
+  background-color: #42f4f1;
+  border: 0px;
+  transition: background-color ease-in-out .15s;
+}
+
+#okBtn:focus {
+  background-color: #01c1be;
+  outline: 0;
+}
+
+header {
+  background-color: #42f4f1;
+  min-width:700px;
+  height: 100px;
+  color: white;
+  font-size: 70px;
+  text-align: center;
+  border-bottom-left-radius: 50px;
+  border-bottom-RIGHT-radius: 50px;
+}
+
+.tab-content {
+  min-height: 50%;
+  margin-top: 30px;
+  padding: 10px;
+  border-style: solid;
+  border-color: #42f4f1;
+  border-width: 0px 5px 5px 5px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+ul li {
+  width: 33%;
+}
+
+ul li a {
+  color: #42f4f1;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.5em;
+}
+
+ul li a:hover {
+  color: white;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.5em;
+  /*background-color: #42f4f1; why doesnt it work? */
+}
+
+.completeTodo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: green;
+  color: white;
+  opacity: 0;
+  z-index: 100;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.completeTodo:hover {
+  cursor: pointer;
+  opacity: .6;
+}
+
+.deleteTodo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: red;
+  color: white;
+  opacity: 0;
+  z-index: 100;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.deleteTodo:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+
+
+.textInput {
+  /*why not use width here*/
+  /*margin-top: 40px;*/
+  height: 50px;
+  padding-right: 50px;
+  border-width: 2px;
+  border-color: #01c1be;
+  border-bottom-left-radius: 20px;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+}
+
+.textInput:focus {
+  outline: 0px;
+  border-width: 2px;
+  border-color: #01c1be;
+}
+
+.todo {
+  position: relative;;
+  margin: 5px;
+  height: auto;
+  -webkit-box-shadow: 2px 1px 0px 0px #42f4f1;
+  -moz-box-shadow: 2px 1px 0px 0px #42f4f1;
+  box-shadow: 2px 1px 0px 0px #42f4f1;
+  padding: 10px;
+}
+
+.todoSerialNumber {
+  color: #42f4f1;
+  height: auto;
+  font-weight: bolder;
+}
+
+.todoStatus {
+  word-wrap:normal;
+}
+
+.todoText {
+}
+
+/*any better alternative to this?*/
+.form-group {
+  position: relative;
+}
+
+
+/*this is not working*/
+/*.textInput:placeholder {
+  color: #42f4f1 !important;
+  font-size: 1.5em;
+}*/

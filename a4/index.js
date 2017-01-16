@@ -4,8 +4,9 @@ var template = document.querySelector('#imageTemplate');
 var fetchAnimateChange = function(){
   var element = this;
   $.ajax({
-    url:'https://randomuser.me/api',
+    url:'https://randomuser.me/api?a=',
     dataType:'json',
+    'Cache-control': 'no-cache',
     method:'GET',
     success: function(response){
       $(element).fadeOut(10); // image is loading before the img fades out, thats y 10.
