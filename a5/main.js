@@ -7,6 +7,10 @@ document.querySelector('#todoTextInput').onkeypress = function(){
     event.preventDefault(); // what it actuall does - read.
     document.querySelector('#okBtn').click();
   }
+  if(event.target.value.length >60){
+    event.preventDefault();
+    alert('Todo\'s length cannot be more than 60 characters!');
+  }
 }
 
 
@@ -40,9 +44,12 @@ var allData = {
 }
 
 var addNewTodo = function(){
-  console.log('adding new todo');
-  let dateObject = new Date();
   let todoText = document.querySelector('#todoTextInput').value;
+  if (todoText.length < 4){
+    alert('Type a meaningful todo!');
+    return;
+  }
+  let dateObject = new Date();
   let createdAt = dateObject.toString();
   let status = 'undone';
   let tags =[];
